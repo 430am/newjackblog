@@ -31,7 +31,7 @@ const options = {
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'http://plutodyne.com/',
+	site: 'http://jackwade.net/',
 
 	markdown: {
 		syntaxHighlight: false,
@@ -40,7 +40,14 @@ export default defineConfig({
 		remarkPlugins: [remarkReadingTime]
 	},
 
-	integrations: [react(), sitemap()],
+	integrations: [
+		starlight({
+			logo: {
+				src: './public/favicon.ico',
+			}
+		}),
+		react(),
+		sitemap()],
 	output: 'static',
 
 	adapter: vercelStatic({
